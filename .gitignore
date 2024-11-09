@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+*.db
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# VS Code
+.vscode/
+
+# Ambiente virtual
+.env
+.venv
+env/
+ENV/
+
+# Banco de dados SQLite
+instance/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">Minhas Oficinas</h2>
+
+    {% if inscricoes %}
+        <div class="row">
+            {% for inscricao in inscricoes %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body" style="background-color: {% if inscricao.oficina.categoria == 'dança' %}#6a1b9a{% elif inscricao.oficina.categoria == 'música' %}#4a148c{% else %}#00796b{% endif %}; color: white;">
+                        <h4 class="card-title">{{ inscricao.oficina.nome }}</h4>
+                        <p class="card-text">
+                            <i class="bi bi-clock"></i> {{ inscricao.oficina.horario }}<br>
+                            <i class="bi bi-calendar"></i> {{ inscricao.oficina.dia_semana }}<br>
+                            <i class="bi bi-person"></i> {{ inscricao.oficina.professor }}
+                        </p>
+                        <div class="mt-3">
+                            <form action="{{ url_for('cancelar_inscricao', inscricao_id=inscricao.id) }}" method="POST"
+                                  onsubmit="return confirm('Tem certeza que deseja cancelar sua inscrição?');">
+                                <button type="submit" class="btn btn-light">Cancelar Inscrição</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <p>Você ainda não está inscrito em nenhuma oficina.</p>
+            <a href="{{ url_for('oficinas') }}" class="btn btn-primary mt-2">Ver Oficinas Disponíveis</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

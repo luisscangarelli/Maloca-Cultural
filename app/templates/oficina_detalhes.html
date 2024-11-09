@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <img src="{{ oficina.imagem or url_for('static', filename='img/default-oficina.jpg') }}"
+                 class="img-fluid rounded mb-4" alt="{{ oficina.nome }}">
+
+            <h1>{{ oficina.nome }}</h1>
+            <p class="lead">com {{ oficina.professor }}</p>
+
+            <div class="my-4">
+                {{ oficina.descricao }}
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Informações da Oficina</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-clock"></i> {{ oficina.horario }}</li>
+                        <li><i class="bi bi-calendar"></i> {{ oficina.dia_semana }}</li>
+                        <li><i class="bi bi-person"></i> {{ oficina.vagas_disponiveis }} vagas disponíveis</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% if current_user.is_authenticated %}
+                {% if ja_inscrito %}
+                    <div class="alert alert-success">
+                        <i class="bi bi-check-circle"></i> Você já está inscrito nesta oficina!
+                    </div>
+                {% else %}
+                    {% if oficina.vagas_disponiveis > 0 %}
+                        <form action="{{ url_for('inscrever_oficina', oficina_id=oficina.id) }}" method="POST">
+                            <button type="submit" class="btn btn-primary btn-lg">Inscrever-se</button>
+                        </form>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle"></i> Lista de espera
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% else %}
+                <div class="alert alert-info">
+                    <a href="{{ url_for('login') }}">Faça login</a> para se inscrever nesta oficina.
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Outras Oficinas</h5>
+                    <ul class="list-unstyled">
+                        {% for outra_oficina in outras_oficinas %}
+                            <li class="mb-3">
+                                <a href="{{ url_for('oficina_detalhes', oficina_id=outra_oficina.id) }}"
+                                   class="text-decoration-none">
+                                    {{ outra_oficina.nome }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

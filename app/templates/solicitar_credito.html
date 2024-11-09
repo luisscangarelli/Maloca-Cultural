@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header" style="background-color: #00796b; color: white;">
+                    <h3 class="mb-0">Solicitar Microcrédito</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="valor" class="form-label">Valor Solicitado (R$)</label>
+                            <input type="number" class="form-control" id="valor" name="valor" required
+                                   min="100" max="5000" step="100">
+                            <small class="text-muted">Valor mínimo: R$ 100,00 | Valor máximo: R$ 5.000,00</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="finalidade" class="form-label">Finalidade do Crédito</label>
+                            <select class="form-select" id="finalidade" name="finalidade" required>
+                                <option value="">Selecione...</option>
+                                <option value="capital_giro">Capital de Giro</option>
+                                <option value="equipamentos">Compra de Equipamentos</option>
+                                <option value="reforma">Reforma do Estabelecimento</option>
+                                <option value="estoque">Compra de Estoque</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descreva seu Projeto/Negócio</label>
+                            <textarea class="form-control" id="descricao" name="descricao" rows="4" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="renda" class="form-label">Renda Mensal Aproximada (R$)</label>
+                            <input type="number" class="form-control" id="renda" name="renda" required>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h5>Documentos Necessários:</h5>
+                            <ul class="mb-0">
+                                <li>RG e CPF</li>
+                                <li>Comprovante de Residência</li>
+                                <li>Comprovante de Renda (se houver)</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-lg">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

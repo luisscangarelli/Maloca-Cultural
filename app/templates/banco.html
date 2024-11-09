@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-banco text-white py-5" style="background-color: #00796b;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4">Banco Preventório</h1>
+                <p class="lead">Apoiando o desenvolvimento econômico local através do microcrédito solidário.</p>
+                <a href="{{ url_for('solicitar_credito') }}" class="btn btn-light btn-lg mt-3">Solicitar Crédito</a>
+            </div>
+           <div class="col-md-6">
+    <img src="{{ url_for('static', filename='img/banco/banco-hero.jpg') }}"
+         class="img-fluid rounded hero-image" alt="Banco Preventório">
+</div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Oficina Financeira -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="card">
+            <div class="card-body" style="background-color: #00796b; color: white;">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3>Raízes Emocionais do Dinheiro</h3>
+                        <p class="mb-2">19 OUT às 14h</p>
+                        <p class="mb-3">com Lídia Souza</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle"></i> Workshop gratuito</li>
+                            <li><i class="bi bi-check-circle"></i> Material didático incluso</li>
+                            <li><i class="bi bi-check-circle"></i> Certificado de participação</li>
+                        </ul>
+                        {% if current_user.is_authenticated %}
+                            <form action="{{ url_for('inscrever_oficina', oficina_id=4) }}" method="POST">
+                                <button type="submit" class="btn btn-light">INSCREVA-SE</button>
+                            </form>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="btn btn-light">Faça login para se inscrever</a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ url_for('static', filename='img/banco/oficina-financeira.jpg') }}"
+                             class="img-fluid rounded" alt="Oficina Financeira">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Serviços -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nossos Serviços</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cash-coin text-success fs-1"></i>
+                        <h3 class="h4 mt-3">Microcrédito</h3>
+                        <p>Empréstimos acessíveis para empreendedores locais, com condições especiais e orientação financeira.</p>
+                        <a href="#" class="btn btn-outline-success">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-graph-up-arrow text-success fs-1"></i>
+                        <h3 class="h4 mt-3">Consultoria Financeira</h3>
+                        <p>Orientação personalizada para melhor gestão do seu negócio e finanças pessoais.</p>
+                        <a href="#" class="btn btn-outline-success">Agende uma Consulta</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-mortarboard text-success fs-1"></i>
+                        <h3 class="h4 mt-3">Educação Financeira</h3>
+                        <p>Oficinas e cursos gratuitos para desenvolver habilidades financeiras.</p>
+                        <a href="#" class="btn btn-outline-success">Ver Programação</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impacto e Resultados -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Nosso Impacto</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="display-4 text-success">R$ 40mil+</div>
+                <p class="lead">em microcréditos concedidos</p>
+            </div>
+            <div class="col-md-4">
+                <div class="display-4 text-success">100+</div>
+                <p class="lead">empreendedores apoiados</p>
+            </div>
+            <div class="col-md-4">
+                <div class="display-4 text-success">50+</div>
+                <p class="lead">oficinas realizadas</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Como Funciona -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Como Funciona</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="circle-step mb-3">1</div>
+                    <h4>Cadastro</h4>
+                    <p>Faça seu cadastro em nossa plataforma</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="circle-step mb-3">2</div>
+                    <h4>Análise</h4>
+                    <p>Avaliamos seu perfil e necessidades</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="circle-step mb-3">3</div>
+                    <h4>Orientação</h4>
+                    <p>Receba consultoria personalizada</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="circle-step mb-3">4</div>
+                    <h4>Crédito</h4>
+                    <p>Acesse o microcrédito quando necessário</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-success text-white">
+    <div class="container text-center">
+        <h2>Comece sua Jornada Financeira</h2>
+        <p class="lead">Junte-se a nós e transforme sua realidade financeira</p>
+        <a href="{{ url_for('registro') }}" class="btn btn-light btn-lg mt-3">Cadastre-se Agora</a>
+    </div>
+</section>
+{% endblock %}

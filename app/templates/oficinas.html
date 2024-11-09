@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Nossas Oficinas</h2>
+
+        <div class="row g-4">
+            <!-- Dança do Ventre -->
+            <div class="col-md-4" id="danca">
+                <div class="card h-100">
+                    <div class="card-body" style="background-color: #6a1b9a; color: white;">
+                        <span class="badge bg-light text-dark mb-2">QUARTAS 17:00</span>
+                        <h3>Dança do Ventre</h3>
+                        <p>Professora Aischa Hortale</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle"></i> Aulas gratuitas</li>
+                            <li><i class="bi bi-check-circle"></i> Material incluso</li>
+                            <li><i class="bi bi-check-circle"></i> Certificado</li>
+                        </ul>
+                        {% if current_user.is_authenticated %}
+                            <form action="{{ url_for('inscrever_oficina', oficina_id=1) }}" method="POST">
+                                <button type="submit" class="btn btn-light mt-2">Inscrever-se</button>
+                            </form>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="btn btn-light mt-2">Faça login para se inscrever</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violão -->
+            <div class="col-md-4" id="violao">
+                <div class="card h-100">
+                    <div class="card-body" style="background-color: #4a148c; color: white;">
+                        <span class="badge bg-light text-dark mb-2">TERÇAS 18:00</span>
+                        <h3>Violão</h3>
+                        <p>Professor Marcinho</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle"></i> Aulas gratuitas</li>
+                            <li><i class="bi bi-check-circle"></i> Instrumento opcional</li>
+                            <li><i class="bi bi-check-circle"></i> Certificado</li>
+                        </ul>
+                        {% if current_user.is_authenticated %}
+                            <form action="{{ url_for('inscrever_oficina', oficina_id=2) }}" method="POST">
+                                <button type="submit" class="btn btn-light mt-2">Inscrever-se</button>
+                            </form>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="btn btn-light mt-2">Faça login para se inscrever</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capoeira -->
+            <div class="col-md-4" id="capoeira">
+                <div class="card h-100">
+                    <div class="card-body" style="background-color: #4a148c; color: white;">
+                        <span class="badge bg-light text-dark mb-2">SEXTAS 19:00</span>
+                        <h3>Capoeira</h3>
+                        <p>Mestre João</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle"></i> Aulas gratuitas</li>
+                            <li><i class="bi bi-check-circle"></i> Material incluso</li>
+                            <li><i class="bi bi-check-circle"></i> Certificado</li>
+                        </ul>
+                        {% if current_user.is_authenticated %}
+                            <form action="{{ url_for('inscrever_oficina', oficina_id=3) }}" method="POST">
+                                <button type="submit" class="btn btn-light mt-2">Inscrever-se</button>
+                            </form>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="btn btn-light mt-2">Faça login para se inscrever</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Adicione este CSS para uma rolagem suave -->
+<style>
+html {
+    scroll-behavior: smooth;
+}
+</style>
+{% endblock %}
