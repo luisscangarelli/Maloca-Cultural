@@ -4,7 +4,6 @@ from app.models import Oficina
 
 def criar_oficinas():
     with app.app_context():
-        # Primeiro, vamos criar as oficinas
         oficinas = [
             Oficina(
                 nome='Dança do Ventre',
@@ -42,15 +41,13 @@ def criar_oficinas():
         ]
 
         try:
-            # Adiciona cada oficina ao banco de dados
             for oficina in oficinas:
                 db.session.add(oficina)
 
-            # Salva as mudanças
+        
             db.session.commit()
             print("Oficinas criadas com sucesso!")
 
-            # Mostra as oficinas criadas
             todas_oficinas = Oficina.query.all()
             for oficina in todas_oficinas:
                 print(f"Oficina: {oficina.nome} - Professor(a): {oficina.professor}")
