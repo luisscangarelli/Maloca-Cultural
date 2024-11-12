@@ -158,11 +158,11 @@
 /* Configuração do container do carousel */
 #mainCarousel {
     margin: 0 auto;
-    max-width: 1200px; /* Largura máxima do slider */
+    max-width: 1200px; 
 }
 
 .carousel-inner {
-    height: 400px; /* Altura reduzida do slider */
+    height: 400px; 
 }
 
 .carousel-item {
@@ -184,20 +184,20 @@
     text-align: center;
     color: white;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+    background: rgba(0, 0, 0, 0.6); 
     border-radius: 8px;
     width: auto;
     min-width: 300px;
 }
 
 .carousel-text-overlay h1 {
-    font-size: 2.5rem; /* Tamanho reduzido */
+    font-size: 2.5rem; 
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .carousel-text-overlay p {
-    font-size: 1.2rem; /* Tamanho reduzido */
+    font-size: 1.2rem; 
     margin-bottom: 0;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
@@ -213,18 +213,15 @@
     bottom: 10px;
 }
 .hero-image {
-    max-height: 200px; /* Ajuste este valor conforme necessário */
+    max-height: 200px; 
     width: auto;
     object-fit: contain;
 }
-/* Ajuste para a imagem do banco-hero */
 .banco-hero img {
-    max-height: 300px; /* Ajuste esse valor conforme necessário */
+    max-height: 300px; 
     width: auto;
     object-fit: contain;
 }
-
-/* Ajuste para a imagem da oficina financeira */
 .oficina-financeira-img {
     max-height: 200px; /* Ajuste esse valor conforme necessário */
     width: auto;
