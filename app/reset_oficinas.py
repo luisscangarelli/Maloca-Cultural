@@ -4,11 +4,10 @@ from app.models import Oficina
 
 def reset_oficinas():
     with app.app_context():
-        # Limpa todas as oficinas existentes
         Oficina.query.delete()
         db.session.commit()
 
-        # Cria as oficinas na ordem correta
+        
         oficinas = [
             Oficina(
                 nome='Dança do Ventre',
@@ -57,7 +56,7 @@ def reset_oficinas():
 
         db.session.commit()
 
-        # Mostra as oficinas criadas e seus IDs
+        
         todas_oficinas = Oficina.query.all()
         for oficina in todas_oficinas:
             print(f"ID: {oficina.id} - Nome: {oficina.nome}")
